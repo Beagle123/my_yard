@@ -21,7 +21,7 @@ class MyYard
     @export_db ||= false
     @title ||= "Get outta my yard!"
   end
-
+#  ffgd
   def before_show()
     fill_combo_boxes
   end  
