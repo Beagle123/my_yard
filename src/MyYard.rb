@@ -41,11 +41,13 @@ class MyYard
     args << @builder[:title].text
     args << "--exclude"
     args << @builder[:exclude].text
+    oinspect args
     if File.directory?(@project_root) and @project_root != ENV["HOME"]
       old_dir = Dir.pwd
       FileUtils.cd(@project_root) 
       YARD::CLI::Yardoc.run(*args).to_s
       FileUtils.cd(old_dir)
+      alert "Done"
     else
       alert "Invalid Project Folder."
     end
@@ -65,8 +67,9 @@ class MyYard
 #    Dir.glob("./templates/*").each do |template|
   end
   
+  protected
   # Just to test if private is included
-  private def private_test
+  def private_test
   end
 
 end

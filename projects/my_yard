@@ -4,8 +4,8 @@ theme: default
 files: "*/**/*.rb"
 extra_files: site/*.*
 include_public: true
-include_private: true
-include_protected: true
+include_private: false
+include_protected: false
 title: Get outta my yard!
 vr_yaml_file: projects/my_yard
 builder: !ruby/object:Gtk::Builder {}
@@ -16,4 +16,4 @@ output_folder: doc
 output_dir: doc
 template: default
 export_db: false
-exclude: "*.glade"
+exclude: GlobalSettings.rb
