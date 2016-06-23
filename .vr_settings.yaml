@@ -10,9 +10,11 @@ open_files:
 - "/home/eric/vrp/my_yard/src/MyYard.rb"
 open_folders:
 - "/home/eric/vrp/my_yard"
+- "/home/eric/vrp/my_yard/doc"
 - "/home/eric/vrp/my_yard/projects"
+- "/home/eric/vrp/my_yard/src"
 current_file: "/home/eric/vrp/my_yard/src/MyYard.rb"
-current_line: 58
+current_line: 18
 rdoc_command_line: rdoc -x README
 builder: !ruby/object:Gtk::Builder {}
 top_level_window: false

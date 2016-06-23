@@ -1,5 +1,5 @@
 --- !ruby/object:MyYard
-project_root: "/home/eric/vrp/vr3"
+project_root: "/home/eric/vrp/my_yard"
 theme: default
 files: "*/**/*.rb"
 extra_files: site/*.*
@@ -15,3 +15,5 @@ answer: !ruby/object:VR::Alert::DialogAnswer
 output_folder: doc
 output_dir: doc
 template: default
+export_db: false
+exclude: "*.glade"

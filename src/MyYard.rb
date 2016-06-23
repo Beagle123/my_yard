@@ -12,16 +12,17 @@ class MyYard
     @output_dir ||= "doc"
     @theme ||= "default"
     @template ||= "default" 
-    @files ||= "*/**/*.rb"
-    @extra_files ||= "README.*"
-    @include_public = true if @include_public.nil?  
+    @files ||= "*/**/*.rb */**/*.c"
+    @extra_files ||= "*/**/*.md */**/*.rdoc"
+    @exclude ||= "*.glade"
+    @include_public = true if @include_public.nil? # ||= no good on this one  
     @include_private ||= false
     @include_protected ||= false
+    @export_db ||= false
     @title ||= "Get outta my yard!"
   end
 
   def before_show()
-#    set_glade_all
     fill_combo_boxes
   end  
 
@@ -35,10 +36,15 @@ class MyYard
     args << "--protected" if @builder[:include_protected].active?
     args << "--output-dir"
     args << @builder[:output_dir].text
+    args << "--no-save" if !@builder["export_db"].active?
+    args << "--title" 
+    args << @builder[:title].text
+    args << "--exclude"
+    args << @builder[:exclude].text
     if File.directory?(@project_root) and @project_root != ENV["HOME"]
       old_dir = Dir.pwd
       FileUtils.cd(@project_root) 
-      YARD::CLI::Yardoc.run(*args)
+      YARD::CLI::Yardoc.run(*args).to_s
       FileUtils.cd(old_dir)
     else
       alert "Invalid Project Folder."
