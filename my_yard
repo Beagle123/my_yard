@@ -1,0 +1,14 @@
+#!/usr/bin/ruby
+
+require "vrlib"
+require 'yard'
+
+# from require_all gem:
+require_rel 'src/'
+
+$root = File.expand_path(File.dirname(__FILE__))
+
+proj = VR::load_yaml(file_name: File.join("projects", "my_yard"), class: MyYard)
+
+proj.show_glade()
+
