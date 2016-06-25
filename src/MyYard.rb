@@ -8,7 +8,7 @@ class MyYard
   end
 
   def defaults
-    @project_root ||= ENV["HOME"]
+    @project_root = $open_project
     @output_dir ||= "doc"
     @theme ||= "default"
     @template ||= "default" 
@@ -18,58 +18,116 @@ class MyYard
     @include_public = true if @include_public.nil? # ||= no good on this one  
     @include_private ||= false
     @include_protected ||= false
+    @no_private ||= false
     @export_db ||= false
     @title ||= "Get outta my yard!"
+    @main ||= "README.md"
   end
-#  ffgd
+
   def before_show()
     fill_combo_boxes
   end  
 
   def buttonGenerate__clicked(*args)
+    save_state
     args = []
-    args << @files
-    args << "-"
-    args << @extra_files
-    args << "--private" if @builder[:include_private].active?
-    args << "--no-public" if !@builder[:include_public].active?
-    args << "--protected" if @builder[:include_protected].active?
+    @files.split.each { |glob| args << glob }
+    if @extra_files.strip != ""
+      args << "-"
+      args << @extra_files
+    end
+    args << "--private" if @include_private 
+    args << "--no-public" if !@include_public 
+    args << "--protected" if @include_protected 
     args << "--output-dir"
-    args << @builder[:output_dir].text
-    args << "--no-save" if !@builder["export_db"].active?
+    args << @output_dir 
+    args << "--no-save" unless @export_db 
     args << "--title" 
-    args << @builder[:title].text
-    args << "--exclude"
-    args << @builder[:exclude].text
-    oinspect args
+    args << @title 
+    if @exclude.strip != ""
+      args << "--exclude"
+      args << @exclude 
+    end
+    args << "--no-private" if @no_private 
+    if @main.strip != ""
+      args << "--main"
+      args << @main
+    end
     if File.directory?(@project_root) and @project_root != ENV["HOME"]
       old_dir = Dir.pwd
       FileUtils.cd(@project_root) 
       YARD::CLI::Yardoc.run(*args).to_s
       FileUtils.cd(old_dir)
-      alert "Done"
     else
-      alert "Invalid Project Folder."
+      alert "Invalid Project Folder.", parent: self
     end
+    css = VR::load_yaml(file_name: File.join(Dir.home, "my_yard", "themes", @theme + ".yaml"), class: YardTheme)
+    css.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
   end
 
-  def window1__destroy(*a)
-    get_glade_all
-    VR::save_yaml(self)
-    super
+  def project_root__changed(*a)
+    return unless @builder[:project_root].model.count == $env.projects.size 
+    return if @builder[:project_root].active_text == $open_project 
+    @builder[:window1].destroy  
   end
 
   def fill_combo_boxes()
     @builder[:template].append_text "default"
+    glob = File.join(ENV["HOME"], "my_yard", "templates", "*/")
+    Dir.glob(glob).each do |path|
+      @builder[:template].append_text File.basename(path)
+    end
     @builder[:theme].append_text "default"
-    @builder[:template].append_text "four column"
-    @builder[:theme].append_text "apples"
-#    Dir.glob("./templates/*").each do |template|
+    glob = File.join(ENV["HOME"], "my_yard", "themes", "*.yaml")
+    Dir.glob(glob).each do |path|
+      @builder[:theme].append_text File.basename(path, ".*")
+    end
+    $env.projects.each do |path|
+      @builder[:project_root].append_text path 
+    end
   end
-  
-  protected
-  # Just to test if private is included
-  def private_test
+
+  def buttonEditTheme__clicked(*a)
+    file = File.join(Dir.home, "my_yard", "themes", @theme + ".yaml")
+    win = VR::load_yaml(file_name: file, class: YardTheme)
+    win.show_glade(self)
+  end
+
+  def toolBrowser__clicked(*a)
+    IO.popen("#{$env.browser} #{File.join(@project_root, @output_dir, @main)}")  
+  end
+
+  def toolDeleteMe__clicked(*a)
+    if alert("This will delete this project:\n<b>#{@project_root}</b>\nDo you want to continue?",
+        button_yes: "Delete",
+        button_no: "Cancel",
+        parent: self,
+        headline: "Delete This Project?")
+      $env.projects.delete(@project_root)
+      VR::save_yaml($env)
+      FileUtils.rm_rf File.join(@project_root, "my_yard.yaml")
+      @builder[:window1].destroy
+    end
+  end
+      
+  def window1__destroy(*a)
+    root = @builder[:project_root].active_text
+    if !File.exist?(File.join(@project_root, "my_yard.yaml")) # deleted!
+      $open_project = $env.projects.empty? ? :exit : $env.projects[0]
+    elsif root != $open_project # user changed root
+      save_state
+      $open_project = root
+    else # same root, not deleted => exit
+      save_state
+      $open_project = :exit
+    end  
+    super
+  end
+
+  def save_state
+    get_glade_all
+    @project_root = $open_project
+    VR::save_yaml(self)
   end
 
 end

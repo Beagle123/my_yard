@@ -1,19 +1,18 @@
 --- !ruby/object:MyYard
 project_root: "/home/eric/vrp/my_yard"
+output_dir: doc
 theme: default
-files: "*/**/*.rb"
-extra_files: site/*.*
+template: default
+files: "*/**/*.c  */**/*.rb"
+extra_files: ''
+exclude: ''
 include_public: true
 include_private: false
 include_protected: false
+no_private: false
+export_db: false
 title: Get outta my yard!
-vr_yaml_file: projects/my_yard
+vr_yaml_file: "/home/eric/vrp/my_yard/my_yard.yaml"
 builder: !ruby/object:Gtk::Builder {}
 top_level_window: true
-answer: !ruby/object:VR::Alert::DialogAnswer
-  answer: true
-output_folder: doc
-output_dir: doc
-template: default
-export_db: false
-exclude: GlobalSettings.rb
+main: index.html

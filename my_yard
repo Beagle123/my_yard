@@ -6,9 +6,17 @@ require 'yard'
 # from require_all gem:
 require_rel 'src/'
 
-$root = File.expand_path(File.dirname(__FILE__))
+$open_project = (ARGV[0] and File.directory?(ARGV[0])) ? File.expand_path(ARGV[0]) : Dir.pwd
 
-proj = VR::load_yaml(file_name: File.join("projects", "my_yard"), class: MyYard)
+$env = VR::load_yaml(file_name: File.join(ENV["HOME"], "my_yard", "global_settings.yaml"), class: GlobalSettings)
 
-proj.show_glade()
+$env.add_project($open_project)
+
+VR::save_yaml(YardTheme.new(), File.join(ENV["HOME"], "my_yard", "themes", "default.yaml"))
+
+while $open_project != :exit 
+  proj = VR::load_yaml(file_name: File.join($open_project, "my_yard.yaml"), class: MyYard)
+  proj.show_glade()
+end
+
 

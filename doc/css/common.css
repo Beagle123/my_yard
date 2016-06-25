@@ -1,1 +1,3 @@
-/* Override this file with custom rules */
+body { font-family: Comic Sans MS; font-size: 16px; font-color: #faa; background: #eff;}
+p { width: 60%;}
+h1 { color: #fff; text-shadow: -2px 2px #000; font-size: 2.5em; background: #722;}
