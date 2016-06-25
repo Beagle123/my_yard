@@ -20,10 +20,18 @@ class YardTheme
       "text-shadow" => "-2px 2px #000",
       "font-size" => "2.5em",
       "background" => "#722"
+    @color = {}
+    @color["h2"] = "#ad0fff"
+    @font = {}
+    @font["h1"] = "Ubuntu"
   end
 
   def export_to(file)
     File.open(file, "w") { |f| f.puts to_css }
+  end
+
+  def color__color_set(widget)
+    oinspect widget.color
   end
 
   def to_css
