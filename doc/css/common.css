@@ -1,3 +1,18 @@
-body { font-family: Comic Sans MS; font-size: 16px; font-color: #faa; background: #eff;}
-p { width: 60%;}
-h1 { color: #fff; text-shadow: -2px 2px #000; font-size: 2.5em; background: #722;}
+h1 { font-size: 2em; }
+h2 { font-size: 1em; }
+h3 { font-size: 1.2em; }
+h1 { color: #662211; }
+h2 { color: #555555; }
+h3 { color: #555555; }
+h1 { background: #ffffff; }
+h2 { background: #ffffff; }
+h3 { background: #ffffff; }
+h1 { font-family: Ubuntu; }
+h2 { font-family: Nimbus Mono L Oblique 10; }
+h3 { font-family: Norasi 10; }
+p { width: 65%; }
+body { font-size: 16px; }
+#toc { background-color: #fee; }
+body { background-color: #ffffff; }
+.summary .summary_signature { background: #ffffff; }
+p.signature, h3.signature { background: #ffffff; }

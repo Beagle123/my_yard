@@ -10,9 +10,14 @@
       <object class="GtkBox" id="box1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="margin_left">20</property>
+        <property name="margin_right">20</property>
+        <property name="margin_top">20</property>
+        <property name="margin_bottom">20</property>
         <property name="orientation">vertical</property>
+        <property name="spacing">10</property>
         <child>
-          <object class="GtkLabel" id="label7">
+          <object class="GtkLabel" id="headline">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="label" translatable="yes">&lt;big&gt;Edit Theme&lt;/big&gt;</property>
@@ -29,11 +34,91 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <child>
-              <object class="GtkLabel" id="label8">
+              <object class="GtkGrid" id="grid2">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="label" translatable="yes">label</property>
-                <property name="lines">1</property>
+                <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">10</property>
+                <property name="margin_bottom">10</property>
+                <child>
+                  <object class="GtkLabel" id="label7">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Font size for body:</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="css[body:font-size]">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="width_chars">8</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label15">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Paragraph Width:</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="css[p:width]">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="width_chars">8</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label8">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Background Color</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">2</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkColorButton" id="css[body:background-color]">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">2</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
               </object>
             </child>
             <child type="tab">
@@ -50,6 +135,12 @@
               <object class="GtkGrid" id="grid1">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
+                <property name="margin_left">10</property>
+                <property name="margin_right">10</property>
+                <property name="margin_top">10</property>
+                <property name="margin_bottom">10</property>
+                <property name="row_spacing">5</property>
+                <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkLabel" id="label4">
                     <property name="visible">True</property>
@@ -94,7 +185,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkColorButton" id="color[h1]">
+                  <object class="GtkColorButton" id="css[h1:color]">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -107,7 +198,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkColorButton" id="color[h2]">
+                  <object class="GtkColorButton" id="css[h2:color]">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -120,7 +211,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkColorButton" id="color[h3]">
+                  <object class="GtkColorButton" id="css[h3:color]">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -133,7 +224,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkColorButton" id="color[h1back]">
+                  <object class="GtkColorButton" id="css[h1:background]">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -146,7 +237,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkColorButton" id="color[h2back]">
+                  <object class="GtkColorButton" id="css[h2:background]">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -159,7 +250,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkColorButton" id="color[h3back]">
+                  <object class="GtkColorButton" id="css[h3:background]">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -172,7 +263,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkFontButton" id="font[h1]">
+                  <object class="GtkFontButton" id="css[h1:font-family]">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -187,7 +278,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkFontButton" id="font[h2]">
+                  <object class="GtkFontButton" id="css[h2:font-family]">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -202,7 +293,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkFontButton" id="font[h3]">
+                  <object class="GtkFontButton" id="css[h3:font-family]">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
@@ -217,9 +308,10 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="size[h1]">
+                  <object class="GtkEntry" id="css[h1:font-size]">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="width_chars">6</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -229,9 +321,10 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="size[h2]">
+                  <object class="GtkEntry" id="css[h2:font-size]">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="width_chars">6</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -241,9 +334,10 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="size[h3]">
+                  <object class="GtkEntry" id="css[h3:font-size]">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="width_chars">6</property>
                   </object>
                   <packing>
                     <property name="left_attach">1</property>
@@ -300,7 +394,21 @@
           <object class="GtkButtonBox" id="buttonbox1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="spacing">10</property>
             <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="buttonClone">
+                <property name="label" translatable="yes">Clone</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
             <child>
               <object class="GtkButton" id="buttonCancel">
                 <property name="label" translatable="yes">Close</property>
@@ -311,7 +419,7 @@
               <packing>
                 <property name="expand">False</property>
                 <property name="fill">True</property>
-                <property name="position">0</property>
+                <property name="position">1</property>
               </packing>
             </child>
           </object>

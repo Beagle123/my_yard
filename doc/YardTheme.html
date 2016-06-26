@@ -1,8 +1,8 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: YardTheme
   
@@ -15,9 +15,8 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+  pathId = "YardTheme";
   relpath = '';
-  framesUrl = "frames.html#!YardTheme.html";
 </script>
 
 
@@ -28,42 +27,41 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     <a href="_index.html">Index (Y)</a> &raquo;
     
     
     <span class="title">YardTheme</span>
   
-
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
+      <iframe id="search_frame" src="class_list.html"></iframe>
 
-    <div id="content"><h1>Class: YardTheme
+      <div id="content"><h1>Class: YardTheme
   
   
   
@@ -90,11 +88,15 @@
     
   
     
+      <dt class="r2">Includes:</dt>
+      <dd class="r2">GladeGUI</dd>
+      
+    
   
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">src/YardTheme.rb</dd>
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">src/YardTheme.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -102,6 +104,38 @@
 
 
 
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#clone_name-instance_method" title="#clone_name (instance method)">- (Object) <strong>clone_name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the value of attribute clone_name.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
 
 
 
@@ -113,6 +147,28 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#buttonClone__clicked-instance_method" title="#buttonClone__clicked (instance method)">- (Object) <strong>buttonClone__clicked</strong>(*a) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -161,14 +217,34 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (YardTheme) <strong>initialize</strong> </a>
+      <a href="#maps-instance_method" title="#maps (instance method)">- (Object) <strong>maps</strong> </a>
     
 
     
   </span>
   
   
-    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#save_state-instance_method" title="#save_state (instance method)">- (Object) <strong>save_state</strong> </a>
+    
+
+    
+  </span>
+  
   
   
   
@@ -177,9 +253,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of YardTheme.</p>
-</div></span>
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -206,16 +280,42 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#window1__destroy-instance_method" title="#window1__destroy (instance method)">- (Object) <strong>window1__destroy</strong>(*a) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
-<div id="constructor_details" class="method_details_list">
-  <h2>Constructor Details</h2>
+
   
-    <div class="method_details first">
-  <h3 class="signature first" id="initialize-instance_method">
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="clone_name=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="clone_name-instance_method">
   
-    - (<tt><span class='object_link'><a href="" title="YardTheme (class)">YardTheme</a></span></tt>) <strong>initialize</strong> 
+    - (<tt>Object</tt>) <strong>clone_name</strong> 
   
 
   
@@ -224,7 +324,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns a new instance of YardTheme</p>
+<p>Returns the value of attribute clone_name</p>
 
 
   </div>
@@ -238,22 +338,22 @@
       <pre class="lines">
 
 
-4
-5
-6</pre>
+6
+7
+8</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'src/YardTheme.rb', line 4</span>
+      <pre class="code"><span class="info file"># File 'src/YardTheme.rb', line 6</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_defaults'>defaults</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_clone_name'>clone_name</span>
+  <span class='ivar'>@clone_name</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
 </div>
-  
-</div>
+    
+  </div>
 
 
   <div id="instance_method_details" class="method_details_list">
@@ -261,7 +361,69 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="defaults-instance_method">
+  <h3 class="signature first" id="buttonClone__clicked-instance_method">
+  
+    - (<tt>Object</tt>) <strong>buttonClone__clicked</strong>(*a) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'src/YardTheme.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_buttonClone__clicked'>buttonClone__clicked</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_clone'>clone</span> <span class='op'>=</span> <span class='id identifier rubyid_alert'>alert</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This will make a clone of this theme and exit the editor.  </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Enter the name of the new theme without any extension (only letters and underscores).  </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>To edit the cloned copy, just select it in my_yard, and click the &lt;b&gt;Edit&lt;/b&gt; button.</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='label'>headline:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Clone Theme</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='label'>button_no:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cancel</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='label'>input_text:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='label'>width:</span> <span class='int'>350</span><span class='comma'>,</span>
+      <span class='label'>parent:</span> <span class='kw'>self</span><span class='rparen'>)</span>
+    <span class='ivar'>@clone_name</span> <span class='op'>=</span> <span class='id identifier rubyid_clone'>clone</span> <span class='comment'># todo lowercase, strip, replace everything except letters, numbers and underscores.
+</span>    <span class='id identifier rubyid_dir'>dir</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='ivar'>@vr_yaml_file</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_dir'>dir</span><span class='comma'>,</span> <span class='ivar'>@clone_name</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.yaml</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exists?'>exists?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span> 
+      <span class='id identifier rubyid_alert'>alert</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The file, &lt;b&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>&lt;/b&gt; already exists.</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>parent:</span> <span class='kw'>self</span>
+    <span class='kw'>else</span>
+      <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_cp'>cp</span><span class='lparen'>(</span><span class='ivar'>@vr_yaml_file</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span> 
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="defaults-instance_method">
   
     - (<tt>Object</tt>) <strong>defaults</strong> 
   
@@ -289,25 +451,55 @@
 19
 20
 21
-22</pre>
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'src/YardTheme.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_defaults'>defaults</span>
-  <span class='ivar'>@body</span> <span class='op'>||=</span> <span class='const'>CSS</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>body</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> 
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>font-family</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Comic Sans MS</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>font-size</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>16px</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>font-color</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#faa</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>background</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#eff</span><span class='tstring_end'>&quot;</span></span>
-  <span class='ivar'>@p</span> <span class='op'>||=</span> <span class='const'>CSS</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>p</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>width</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>60%</span><span class='tstring_end'>&quot;</span></span>
-  <span class='ivar'>@h1</span> <span class='op'>||=</span> <span class='const'>CSS</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h1</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>color</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#fff</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>text-shadow</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-2px 2px #000</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>font-size</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2.5em</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>background</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#722</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span> <span class='op'>||=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h1:font-size</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>2em</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h2:font-size</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1.5em</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h3:font-size</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1.2em</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h1:color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#621</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h2:color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#555</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h3:color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#555</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h1:background</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#fff</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h2:background</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#fff</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h3:background</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#fff</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h1:font-family</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ubuntu</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h2:font-family</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Monospace</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h3:font-family</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Monospace</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>p:width</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>65%</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>body:font-size</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>16px</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#toc:background-color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#fee</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>body:background-color</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#aff</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.summary .summary_signature:background</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#faf</span><span class='tstring_end'>&quot;</span></span>  <span class='comment'># summary of instance methods titles
+</span><span class='comment'>#    @css[&quot;p.signature, h3.signature:background&quot;] = &quot;#fa6&quot;  #tit
+</span>  <span class='ivar'>@headline</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;big&gt;Editing Theme:  </span><span class='embexpr_beg'>#{</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='ivar'>@vr_yaml_file</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.*</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>&lt;/big&gt;</span><span class='tstring_end'>&quot;</span></span> 
 
+<span class='comment'># List of links:
+</span><span class='comment'># class = &quot;summary_toggle&quot; is class used for &quot;collapse&quot;
+</span>
+<span class='comment'># todo link color, hilight link color
+</span>
+<span class='comment'># todo invert color
+</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -329,15 +521,79 @@
       <pre class="lines">
 
 
-24
-25
-26</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'src/YardTheme.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'src/YardTheme.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_export_to'>export_to</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='rparen'>)</span>
   <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_file'>file</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>w</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_to_css'>to_css</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="maps-instance_method">
+  
+    - (<tt>Object</tt>) <strong>maps</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+39
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'src/YardTheme.rb', line 39</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_maps'>maps</span>
+  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.summary .summary_signature:background</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h3:background</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='comment'># summary of instance methods titles
+</span>  <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>p.signature, h3.signature:background</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='ivar'>@css</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>h3:background</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>  <span class='comment'># titles over instance method, attr details
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="save_state-instance_method">
+  
+    - (<tt>Object</tt>) <strong>save_state</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'src/YardTheme.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_save_state'>save_state</span>
+  <span class='id identifier rubyid_get_glade_variables'>get_glade_variables</span>
+  <span class='const'>VR</span><span class='op'>::</span><span class='id identifier rubyid_save_yaml'>save_yaml</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -359,15 +615,59 @@
       <pre class="lines">
 
 
-28
-29
-30</pre>
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'src/YardTheme.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'src/YardTheme.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_css'>to_css</span>
-  <span class='ivar'>@body</span><span class='period'>.</span><span class='id identifier rubyid_to_css'>to_css</span> <span class='op'>+</span> <span class='ivar'>@p</span><span class='period'>.</span><span class='id identifier rubyid_to_css'>to_css</span> <span class='op'>+</span> <span class='ivar'>@h1</span><span class='period'>.</span><span class='id identifier rubyid_to_css'>to_css</span> 
+  <span class='id identifier rubyid_maps'>maps</span>
+  <span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@css</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_val'>val</span><span class='op'>|</span>
+    <span class='id identifier rubyid_tag'>tag</span><span class='comma'>,</span> <span class='id identifier rubyid_prop'>prop</span> <span class='op'>=</span> <span class='id identifier rubyid_key'>key</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_out'>out</span> <span class='op'>=</span> <span class='id identifier rubyid_out'>out</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tag'>tag</span><span class='embexpr_end'>}</span><span class='tstring_content'> { </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_prop'>prop</span><span class='embexpr_end'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_val'>val</span><span class='embexpr_end'>}</span><span class='tstring_content'>; }\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_out'>out</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="window1__destroy-instance_method">
+  
+    - (<tt>Object</tt>) <strong>window1__destroy</strong>(*a) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'src/YardTheme.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_window1__destroy'>window1__destroy</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_a'>a</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_save_state'>save_state</span>
+  <span class='kw'>super</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -378,11 +678,12 @@
 
 </div>
 
-    <div id="footer">
-  Generated on Fri Jun 24 21:36:29 2016 by
+      <div id="footer">
+  Generated on Sun Jun 26 00:20:34 2016 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.3.0).
 </div>
 
+    </div>
   </body>
 </html>

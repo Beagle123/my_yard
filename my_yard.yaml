@@ -1,8 +1,8 @@
 --- !ruby/object:MyYard
 project_root: "/home/eric/vrp/my_yard"
 output_dir: doc
-theme: default
-template: default
+theme: visualruby
+template: visualruby
 files: "*/**/*.c  */**/*.rb"
 extra_files: ''
 exclude: ''
@@ -13,6 +13,6 @@ no_private: false
 export_db: false
 title: Get outta my yard!
 vr_yaml_file: "/home/eric/vrp/my_yard/my_yard.yaml"
+main: index.html
 builder: !ruby/object:Gtk::Builder {}
 top_level_window: true
-main: index.html

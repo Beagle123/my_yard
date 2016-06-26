@@ -53,6 +53,12 @@ class MyYard
       args << "--main"
       args << @main
     end
+    if @template != "default"
+      args << "--template-path"
+      args << File.join(Dir.home,"my_yard","templates")
+      args << "--template"
+      args << @template
+    end
     if File.directory?(@project_root) and @project_root != ENV["HOME"]
       old_dir = Dir.pwd
       FileUtils.cd(@project_root) 
@@ -88,9 +94,13 @@ class MyYard
   end
 
   def buttonEditTheme__clicked(*a)
+    get_glade_variables
     file = File.join(Dir.home, "my_yard", "themes", @theme + ".yaml")
     win = VR::load_yaml(file_name: file, class: YardTheme)
     win.show_glade(self)
+    if win.clone_name
+      @builder[:theme].prepend_text win.clone_name
+    end        
   end
 
   def toolBrowser__clicked(*a)
