@@ -9,14 +9,12 @@ open_files:
 - "/home/eric/vrp/my_yard/src/YardTheme.rb"
 - "/home/eric/vrp/my_yard/src/MyYard.rb"
 - "/home/eric/vrp/my_yard/my_yard"
-- "/home/eric/vrp/my_yard/doc/frames.html"
 open_folders:
 - "/home/eric/vrp/my_yard"
-- "/home/eric/vrp/my_yard/doc"
 - "/home/eric/vrp/my_yard/src"
 - "/home/eric/vrp/my_yard/src/glade"
-current_file: "/home/eric/vrp/my_yard/doc/frames.html"
-current_line: 9
+current_file: "/home/eric/vrp/my_yard/my_yard"
+current_line: 23
 rdoc_command_line: rdoc -x README
 builder: !ruby/object:Gtk::Builder {}
 top_level_window: false
