@@ -59,16 +59,19 @@ class MyYard
       args << "--template"
       args << @template
     end
+#oinspect args
     if File.directory?(@project_root) and @project_root != ENV["HOME"]
       old_dir = Dir.pwd
-      FileUtils.cd(@project_root) 
-      YARD::CLI::Yardoc.run(*args).to_s
+      FileUtils.cd(@project_root)
+#      YARD::Registry.clear
+#      YARD::Templates::ErbCache.clear!
+      YARD::CLI::Yardoc.run(*args)
       FileUtils.cd(old_dir)
     else
       alert "Invalid Project Folder.", parent: self
     end
-    css = VR::load_yaml(file_name: File.join(Dir.home, "my_yard", "themes", @theme + ".yaml"), class: YardTheme)
-    css.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
+#    css = VR::load_yaml(file_name: File.join(Dir.home, "my_yard", "themes", @theme + ".yaml"), class: YardTheme)
+#    css.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
   end
 
   def project_root__changed(*a)

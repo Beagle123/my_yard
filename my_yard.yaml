@@ -1,9 +1,9 @@
 --- !ruby/object:MyYard
 project_root: "/home/eric/vrp/my_yard"
 output_dir: doc
-theme: visualruby
-template: visualruby
-files: "*/**/*.c  */**/*.rb"
+theme: default
+template: default
+files: "*/**/*.rb"
 extra_files: ''
 exclude: ''
 include_public: true
