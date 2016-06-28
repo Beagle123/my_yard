@@ -106,6 +106,15 @@ class MyYard
     end        
   end
 
+  def toolOpen__clicked
+    if folder = alert "Enter folder to open:"
+        parent: self, input_text: Home.dir + "/",
+        headline: "Open Folder", button_yes: "Open",
+        button_no: "Cancel"
+      if File.directory?(folder)
+    end
+  end
+
   def toolBrowser__clicked(*a)
     IO.popen("#{$env.browser} #{File.join(@project_root, @output_dir, @main)}")  
   end
