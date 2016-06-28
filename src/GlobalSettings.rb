@@ -11,7 +11,7 @@ class GlobalSettings
   end
 
   def add_project(proj_path)
-    unless @projects.include?(proj_path)
+    unless @projects.include?(proj_path) 
       @projects << proj_path 
       VR::save_yaml(self)
     end 

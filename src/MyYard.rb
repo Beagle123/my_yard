@@ -63,20 +63,22 @@ class MyYard
     if File.directory?(@project_root) and @project_root != ENV["HOME"]
       old_dir = Dir.pwd
       FileUtils.cd(@project_root)
-#      YARD::Registry.clear
+      YARD::Registry.clear
 #      YARD::Templates::ErbCache.clear!
       YARD::CLI::Yardoc.run(*args)
       FileUtils.cd(old_dir)
     else
       alert "Invalid Project Folder.", parent: self
     end
-#    css = VR::load_yaml(YardTheme, File.join(Dir.home, "my_yard", "themes", @theme + ".yaml"))
-#    css.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
+    css = VR::load_yaml(YardTheme, File.join(Dir.home, "my_yard", "themes", @theme + ".yaml"))
+    css.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
   end
 
   def project_root__changed(*a)
     return unless @builder[:project_root].model.count == $env.projects.size 
     return if @builder[:project_root].active_text == $open_project 
+    save_state
+    $open_project = @builder[:project_root].active_text
     @builder[:window1].destroy  
   end
 
@@ -106,12 +108,16 @@ class MyYard
     end        
   end
 
-  def toolOpen__clicked
-    if folder = alert "Enter folder to open:"
-        parent: self, input_text: Home.dir + "/",
+  def toolOpen__clicked(*a)
+    if folder = alert("Enter folder to open:",
+        parent: self, input_text: Dir.home + "/",
         headline: "Open Folder", button_yes: "Open",
-        button_no: "Cancel"
+        button_no: "Cancel")
       if File.directory?(folder)
+        save_state
+        $open_project = folder
+        @builder[:window1].destroy
+      end  
     end
   end
 
@@ -128,23 +134,23 @@ class MyYard
       $env.projects.delete(@project_root)
       VR::save_yaml($env)
       FileUtils.rm_rf File.join(@project_root, "my_yard.yaml")
+      $open_project = $env.projects.empty? ? :exit : $env.projects[0]
       @builder[:window1].destroy
     end
   end
-      
-  def window1__destroy(*a)
-    root = @builder[:project_root].active_text
-    if !File.exist?(File.join(@project_root, "my_yard.yaml")) # deleted!
-      $open_project = $env.projects.empty? ? :exit : $env.projects[0]
-    elsif root != $open_project # user changed root
-      save_state
-      $open_project = root
-    else # same root, not deleted => exit
-      save_state
-      $open_project = :exit
-    end  
+ 
+  def window1__delete_event(*a)
+    save_state
+    $open_project = :exit
+    return false
+  end
+
+  def buttonCancel__clicked(*a)
+    save_state
+    $open_project = :exit
     super
   end
+     
 
   def save_state
     get_glade_all
