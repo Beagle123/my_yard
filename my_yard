@@ -8,14 +8,14 @@ require_rel 'src/'
 
 $open_project = (ARGV[0] and File.directory?(ARGV[0])) ? File.expand_path(ARGV[0]) : Dir.pwd
 
-$env = VR::load_yaml(file_name: File.join(ENV["HOME"], "my_yard", "global_settings.yaml"), class: GlobalSettings)
+$env = VR::load_yaml(GlobalSettings, File.join(Dir.home, "my_yard", "global_settings.yaml"))
 
 $env.add_project($open_project)
 
-VR::save_yaml(YardTheme.new(), File.join(ENV["HOME"], "my_yard", "themes", "default.yaml"))
+VR::save_yaml(YardTheme.new(), File.join(Dir.home, "my_yard", "themes", "default.yaml"))
 
 while $open_project != :exit 
-  proj = VR::load_yaml(file_name: File.join($open_project, "my_yard.yaml"), class: MyYard)
+  proj = VR::load_yaml(MyYard, File.join($open_project, "my_yard.yaml"))
   proj.show_glade()
 end
 

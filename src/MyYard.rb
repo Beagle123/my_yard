@@ -70,7 +70,7 @@ class MyYard
     else
       alert "Invalid Project Folder.", parent: self
     end
-#    css = VR::load_yaml(file_name: File.join(Dir.home, "my_yard", "themes", @theme + ".yaml"), class: YardTheme)
+#    css = VR::load_yaml(YardTheme, File.join(Dir.home, "my_yard", "themes", @theme + ".yaml"))
 #    css.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
   end
 
@@ -99,7 +99,7 @@ class MyYard
   def buttonEditTheme__clicked(*a)
     get_glade_variables
     file = File.join(Dir.home, "my_yard", "themes", @theme + ".yaml")
-    win = VR::load_yaml(file_name: file, class: YardTheme)
+    win = VR::load_yaml(YardTheme, file)
     win.show_glade(self)
     if win.clone_name
       @builder[:theme].prepend_text win.clone_name

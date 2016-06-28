@@ -1,25 +1,17 @@
 --- !ruby/object:VR_ENV
 vr_yaml_file: "/home/eric/vrp/my_yard/.vr_settings.yaml"
-width: 1364
-height: 691
+width: 1208
+height: 600
 panel_pos: 360
-notebook_panel_position: 452
-run_command_line: 'ruby my_yard '
+notebook_panel_position: 400
+run_command_line: ruby my_yard
 open_files:
-- "/home/eric/vrp/my_yard/src/YardTheme.rb"
-- "/home/eric/vrp/my_yard/src/MyYard.rb"
 - "/home/eric/vrp/my_yard/my_yard"
+- "/home/eric/vrp/my_yard/src/MyYard.rb"
 open_folders:
 - "/home/eric/vrp/my_yard"
-- "/home/eric/vrp/my_yard/src"
-- "/home/eric/vrp/my_yard/src/glade"
 current_file: "/home/eric/vrp/my_yard/my_yard"
-current_line: 23
+current_line: 11
 rdoc_command_line: rdoc -x README
 builder: !ruby/object:Gtk::Builder {}
 top_level_window: false
-browser: firefox
-backup_path: "/home/eric"
-tab_spaces: 2
-glade_path: glade-3
-font_name: Monospace 10
