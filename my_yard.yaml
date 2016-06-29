@@ -2,14 +2,14 @@
 project_root: "/home/eric/vrp/my_yard"
 output_dir: doc
 theme: default
-template: default
+template: visualruby
 files: "*/**/*.rb */**/*.c"
 extra_files: "*/**/*.md */**/*.rdoc"
-exclude: "*.glade"
+exclude: ''
 include_public: true
 include_private: false
 include_protected: false
-no_private: false
+no_private: true
 export_db: false
 title: Get outta my yard!
 main: README.md

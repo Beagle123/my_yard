@@ -70,8 +70,10 @@ class MyYard
     else
       alert "Invalid Project Folder.", parent: self
     end
-    css = VR::load_yaml(YardTheme, File.join(Dir.home, "my_yard", "themes", @theme + ".yaml"))
-    css.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
+    if @theme != "default"
+      css = VR::load_yaml(YardTheme, File.join(Dir.home, "my_yard", "themes", @theme + ".yaml"))
+      css.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
+    end
   end
 
   def project_root__changed(*a)
@@ -84,28 +86,31 @@ class MyYard
 
   def fill_combo_boxes()
     @builder[:template].append_text "default"
-    glob = File.join(ENV["HOME"], "my_yard", "templates", "*/")
+    glob = File.join($template_root, "*/")
     Dir.glob(glob).each do |path|
       @builder[:template].append_text File.basename(path)
     end
-    @builder[:theme].append_text "default"
-    glob = File.join(ENV["HOME"], "my_yard", "themes", "*.yaml")
-    Dir.glob(glob).each do |path|
-      @builder[:theme].append_text File.basename(path, ".*")
-    end
+    fill_themes  
     $env.projects.each do |path|
       @builder[:project_root].append_text path 
     end
   end
 
+  def fill_themes()
+    @builder[:theme].model.clear
+    glob = File.join($theme_root, "*.yaml")
+    Dir.glob(glob).each do |path|
+      @builder[:theme].append_text File.basename(path, ".*")
+    end
+  end
+
   def buttonEditTheme__clicked(*a)
     get_glade_variables
-    file = File.join(Dir.home, "my_yard", "themes", @theme + ".yaml")
+    file = File.join($theme_root, @theme + ".yaml")
     win = VR::load_yaml(YardTheme, file)
     win.show_glade(self)
-    if win.clone_name
-      @builder[:theme].prepend_text win.clone_name
-    end        
+    fill_themes
+    set_glade_variables # select theme again      
   end
 
   def toolOpen__clicked(*a)
@@ -138,7 +143,19 @@ class MyYard
       @builder[:window1].destroy
     end
   end
- 
+
+  def buttonDeleteTheme__clicked(*a)
+    get_glade_variables
+    return if @theme == "default"
+    if alert "Delete theme: <b>#{@theme}</b>?", parent:self, button_no: "Cancel"
+      theme = File.join($theme_root, "#{@theme}.yaml")
+      File.delete(theme)
+      @theme = "default"
+      fill_themes
+      set_glade_variables
+    end 
+  end 
+
   def window1__delete_event(*a)
     save_state
     $open_project = :exit
