@@ -2,17 +2,18 @@
 project_root: "/home/eric/vrp/my_yard"
 output_dir: doc
 theme: default
-template: visualruby
+template: default
 files: "*/**/*.rb */**/*.c"
 extra_files: "*/**/*.md */**/*.rdoc"
 exclude: ''
 include_public: true
 include_private: false
 include_protected: false
-no_private: true
-export_db: false
+include_private_tag: false
 title: Get outta my yard!
 main: README.md
+export_db: false
+export_db_path: ".yardocx"
 vr_yaml_file: "/home/eric/vrp/my_yard/my_yard.yaml"
 builder: !ruby/object:Gtk::Builder {}
 top_level_window: true

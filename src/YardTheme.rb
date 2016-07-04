@@ -3,6 +3,8 @@ class YardTheme
   include GladeGUI
   include YardThemeDefaults
 
+  attr_accessor :css
+
   def initialize()
     defaults
   end
@@ -22,14 +24,27 @@ class YardTheme
 
   def to_css
     maps
-    out = ""
+    out = import_google_font("h1")
+    out += import_google_font("h2")
+    out += import_google_font("h3")
     @css.each do |key, val|
-      tag, prop = key.split(":")
-      out = out + "#{tag} { #{prop}: #{val}; }\n"
+#puts key.to_s + val.to_s
+      if val.strip != "" # and val != $default_theme.css[key]
+        val = "'#{val}'" if key.include?("{font-family}")
+        out = out + key.gsub("}", ": #{val};" ) + "}\n"
+      end
     end
     return out
   end
 
+  def import_google_font(tag)
+    out = ""
+    font = @css["#{tag} {font-family}"] 
+    weight = @css["#{tag} {font-weight}"].strip == "" ? "" : ":" + @css["#{tag} {font-weight}"]
+    out += "@import url('https://fonts.googleapis.com/css?family=#{font.gsub(' ', '+')}#{weight}');\n"
+    return out
+  end
+  
   def buttonClone__clicked(*a)
     if clone = alert("This will make a clone of this theme.  " +
         "Enter the name of the new theme without any extension (only letters and underscores).",

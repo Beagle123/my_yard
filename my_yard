@@ -7,11 +7,12 @@ require Dir.home + '/vrp/yard/lib/yard'
 require_rel 'src/'
 
 $theme_root = File.join(Dir.home, "my_yard", "themes")
-$template_root = File.join(Dir.home, "my_yard", "templates")
+$template_root = File.expand_path(File.join(File.dirname(__FILE__), "templates"))
 $project_root = File.join(Dir.home, "my_yard", "projects")
 
 $default_theme = YardTheme.new()
-VR::save_yaml(YardTheme.new(), File.join(Dir.home, "my_yard", "themes", "default.yaml"))
+
+VR::save_yaml(YardTheme.new(), File.join($theme_root, "default.yaml"))
 
 $open_project = (ARGV[0] and File.directory?(ARGV[0])) ? File.expand_path(ARGV[0]) : Dir.pwd
 

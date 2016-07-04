@@ -10,18 +10,19 @@ class MyYard
   def defaults
     @project_root = $open_project
     @output_dir ||= "doc"
-    @theme ||= "default"
+    @theme = "default" if @theme.nil? or !File.exist?(File.join($theme_root, @theme + ".yaml")) 
     @template ||= "default" 
     @files ||= "*/**/*.rb */**/*.c"
     @extra_files ||= "*/**/*.md */**/*.rdoc"
-    @exclude ||= "*.glade"
+    @exclude ||= ""
     @include_public = true if @include_public.nil? # ||= no good on this one  
     @include_private ||= false
     @include_protected ||= false
-    @no_private ||= false
-    @export_db ||= false
+    @include_private_tag ||= false
     @title ||= "Get outta my yard!"
     @main ||= "README.md"
+    @export_db ||= false
+    @export_db_path ||= ".yardoc"
   end
 
   def before_show()
@@ -38,41 +39,48 @@ class MyYard
     end
     args << "--private" if @include_private 
     args << "--no-public" if !@include_public 
-    args << "--protected" if @include_protected 
+    args << "--protected" if @include_protected
+    args << "--no-private" if !@include_private_tag  
     args << "--output-dir"
     args << @output_dir 
-    args << "--no-save" unless @export_db 
     args << "--title" 
     args << @title 
     if @exclude.strip != ""
       args << "--exclude"
       args << @exclude 
     end
-    args << "--no-private" if @no_private 
     if @main.strip != ""
       args << "--main"
       args << @main
     end
     if @template != "default"
       args << "--template-path"
-      args << File.join(Dir.home,"my_yard","templates")
+      args << $template_root
       args << "--template"
       args << @template
     end
-#oinspect args
+    if @export_db and @export_db_path.strip != ""
+      args << "--db"
+      args << @export_db_path
+    else
+      args << "--no-save"        
+    end
     if File.directory?(@project_root) and @project_root != ENV["HOME"]
+      YARD::Registry.clear
+      YARD::Templates::ErbCache.clear!
       old_dir = Dir.pwd
       FileUtils.cd(@project_root)
-      YARD::Registry.clear
-#      YARD::Templates::ErbCache.clear!
       YARD::CLI::Yardoc.run(*args)
       FileUtils.cd(old_dir)
     else
       alert "Invalid Project Folder.", parent: self
     end
     if @theme != "default"
-      css = VR::load_yaml(YardTheme, File.join(Dir.home, "my_yard", "themes", @theme + ".yaml"))
+      css = VR::load_yaml(YardTheme, File.join($theme_root, @theme + ".yaml"))
       css.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
+#      $default_theme.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
+    else
+      File.delete(File.join(@project_root, @output_dir, "css", "common.css"))
     end
   end
 
@@ -113,7 +121,7 @@ class MyYard
     set_glade_variables # select theme again      
   end
 
-  def toolOpen__clicked(*a)
+  def buttonOpenProject__clicked(*a)
     if folder = alert("Enter folder to open:",
         parent: self, input_text: Dir.home + "/",
         headline: "Open Folder", button_yes: "Open",
@@ -126,11 +134,11 @@ class MyYard
     end
   end
 
-  def toolBrowser__clicked(*a)
-    IO.popen("#{$env.browser} #{File.join(@project_root, @output_dir, @main)}")  
-  end
+#  def toolBrowser__clicked(*a)
+#    IO.popen("#{$env.browser} #{File.join(@project_root, @output_dir, @main)}")  
+#  end
 
-  def toolDeleteMe__clicked(*a)
+  def buttonDeleteProject__clicked(*a)
     if alert("This will delete this project:\n<b>#{@project_root}</b>\nDo you want to continue?",
         button_yes: "Delete",
         button_no: "Cancel",
@@ -170,7 +178,7 @@ class MyYard
      
 
   def save_state
-    get_glade_all
+    get_glade_variables
     @project_root = $open_project
     VR::save_yaml(self)
   end
