@@ -23,6 +23,7 @@ class MyYard
     @main ||= "README.md"
     @export_db = true if @export_db.nil?
     @export_db_path ||= ".yardoc"
+#    @format ||= "html"
   end
 
   def before_show()
@@ -65,6 +66,8 @@ class MyYard
     else
       args << "--no-save"        
     end
+#    args << "--format"
+#    args << @format
     if File.directory?(@project_root) and @project_root != ENV["HOME"]
       YARD::Registry.clear
       YARD::Templates::ErbCache.clear!

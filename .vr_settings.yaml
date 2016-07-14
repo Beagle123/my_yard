@@ -12,10 +12,11 @@ open_files:
 - "/home/eric/vrp/my_yard/src/YardTheme.rb"
 - "/home/eric/vrp/my_yard/src/GlobalSettings.rb"
 - "/home/eric/vrp/my_yard/my_yard.gemspec"
+- "/home/eric/vrp/my_yard/install.md"
 open_folders:
 - "/home/eric/vrp/my_yard"
-current_file: "/home/eric/vrp/my_yard/my_yard.gemspec"
-current_line: 13
+current_file: "/home/eric/vrp/my_yard/install.md"
+current_line: 12
 rdoc_command_line: rdoc -x README
 builder: !ruby/object:Gtk::Builder {}
 top_level_window: false

@@ -1,5 +1,17 @@
-# @title My Yard
+# @title Installing my_yard
 
-Welcome to my_yard.  This will make the awesome document generator, yard, awesomer.
+Just do:
+
+  gem install my_yard
+
+That's it!
+
+Then go to the directory that you want to document, and enter:
+
+  my_yard
+
+You'll get this:
+
+![]{http://visualruby/img/my_yard.jpg}
 
 
