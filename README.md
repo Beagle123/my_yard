@@ -12,6 +12,6 @@ Then go to the directory that you want to document, and enter:
 
 You'll get this:
 
-![](http://visualruby/img/my_yard.jpg)
+![](http://visualruby.net/img/my_yard.jpg)
 
 
