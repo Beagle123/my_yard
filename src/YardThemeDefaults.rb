@@ -40,10 +40,6 @@ module YardThemeDefaults
     # colors text below method summary and changes gray object names in full_list, don't set it.
     # @css["li {color}"] = "#ca0"
 
-
-
-
-
     # gray superclass in list
     #@css["li.clicked > .item {color}"] = "#00ffff" #ccc; 
 
@@ -84,11 +80,11 @@ module YardThemeDefaults
     # table of contents
     @css["#toc {background-color}"] ||= "#fee"
 
- #   @css[".summary .summary_signature {background}"] = "#faf"  # summary of instance methods titles
+    # @css[".summary .summary_signature {background}"] = "#faf"  # summary of instance methods titles
     @css["p.signature, h3.signature {background}"] = "#0a6"  #tit
     
-  # List of links:
-  # class = "summary_toggle" is class used for "collapse"
+    # List of links:
+    # class = "summary_toggle" is class used for "collapse"
   end
 
   def maps
@@ -96,7 +92,7 @@ module YardThemeDefaults
     @css[".summary .summary_signature {background}"] = @css["h3 {background}"]
     # titles over instance method, attr details 
     @css["p.signature, h3.signature {background}"] = @css["h3 {background}"]
-    #maps the hilighted color of the method, class or file to the same color as object in parentasis
+    #maps the hilighted color of the method, class or file to the same color as object in parentasis in sidebar
     @css["li.clicked > .item a, li.clicked > .item a:visited {color}"] = @css["li.clicked > .item {color}"] 
   end
 

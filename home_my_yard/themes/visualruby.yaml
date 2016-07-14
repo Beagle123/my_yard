@@ -1,0 +1,36 @@
+--- !ruby/object:YardTheme
+css:
+  body {color}: "#000000"
+  "#main {background}": "#ffffff"
+  body {background-color}: "#ffffff"
+  body {font-size}: 15px
+  p {width}: 65%
+  "#main a, #main a:visited {color}": "#662211"
+  ".object_link a {color}": "#662211"
+  li.odd {background}: "#eeeeee"
+  li.even {background}: "#dddddd"
+  ".item:hover {background}": "#d7d5c1"
+  li.clicked > .item {background}: "#000000"
+  li.clicked > .item {color}: "#d3d7cf"
+  "#main a:hover {background}": "#f6f5cb"
+  h1 {font-family}: Assistant
+  h2 {font-family}: Raleway
+  h3 {font-family}: Rubik One
+  h1 {font-weight}: '200'
+  h2 {font-weight}: '300'
+  h3 {font-weight}: '300'
+  h1 {font-size}: 3em
+  h2 {font-size}: 1.4em
+  h3 {font-size}: 1.4em
+  h1 {color}: "#662211"
+  h2 {color}: "#000000"
+  h3 {color}: "#000000"
+  h1 {background}: "#ffffff"
+  h2 {background}: "#ffffff"
+  h3 {background}: "#ebeade"
+  "#toc {background-color}": "#f3f3eb"
+  p.signature, h3.signature {background}: "#0a6"
+  "#main p {width}": 65%
+vr_yaml_file: "/home/eric/my_yard/themes/visualruby.yaml"
+builder: !ruby/object:Gtk::Builder {}
+top_level_window: false

@@ -10,18 +10,18 @@ class MyYard
   def defaults
     @project_root = $open_project
     @output_dir ||= "doc"
-    @theme = "default" if @theme.nil? or !File.exist?(File.join($theme_root, @theme + ".yaml")) 
+    @theme = "default" if @theme.nil? or !File.exist?(File.join($env.theme_root, @theme + ".yaml")) 
     @template ||= "default" 
     @files ||= "*/**/*.rb */**/*.c"
-    @extra_files ||= "*/**/*.md */**/*.rdoc"
+    @extra_files ||= "*/**/*.md"
     @exclude ||= ""
     @include_public = true if @include_public.nil? # ||= no good on this one  
     @include_private ||= false
     @include_protected ||= false
     @include_private_tag ||= false
-    @title ||= "Get outta my yard!"
+    @title ||= "Generated with Yard 0.8.7.6"
     @main ||= "README.md"
-    @export_db ||= false
+    @export_db = true if @export_db.nil?
     @export_db_path ||= ".yardoc"
   end
 
@@ -34,7 +34,7 @@ class MyYard
     args = []
     @files.split.each { |glob| args << glob }
     if @extra_files.strip != ""
-      args << "-"
+      args << "--files"
       args << @extra_files
     end
     args << "--private" if @include_private 
@@ -55,7 +55,7 @@ class MyYard
     end
     if @template != "default"
       args << "--template-path"
-      args << $template_root
+      args << $env.template_root
       args << "--template"
       args << @template
     end
@@ -76,7 +76,7 @@ class MyYard
       alert "Invalid Project Folder.", parent: self
     end
     if @theme != "default"
-      css = VR::load_yaml(YardTheme, File.join($theme_root, @theme + ".yaml"))
+      css = VR::load_yaml(YardTheme, File.join($env.theme_root, @theme + ".yaml"))
       css.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
 #      $default_theme.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
     else
@@ -94,7 +94,7 @@ class MyYard
 
   def fill_combo_boxes()
     @builder[:template].append_text "default"
-    glob = File.join($template_root, "*/")
+    glob = File.join($env.template_root, "*/")
     Dir.glob(glob).each do |path|
       @builder[:template].append_text File.basename(path)
     end
@@ -106,7 +106,7 @@ class MyYard
 
   def fill_themes()
     @builder[:theme].model.clear
-    glob = File.join($theme_root, "*.yaml")
+    glob = File.join($env.theme_root, "*.yaml")
     Dir.glob(glob).each do |path|
       @builder[:theme].append_text File.basename(path, ".*")
     end
@@ -114,7 +114,7 @@ class MyYard
 
   def buttonEditTheme__clicked(*a)
     get_glade_variables
-    file = File.join($theme_root, @theme + ".yaml")
+    file = File.join($env.theme_root, @theme + ".yaml")
     win = VR::load_yaml(YardTheme, file)
     win.show_glade(self)
     fill_themes
@@ -134,9 +134,17 @@ class MyYard
     end
   end
 
-#  def toolBrowser__clicked(*a)
-#    IO.popen("#{$env.browser} #{File.join(@project_root, @output_dir, @main)}")  
-#  end
+  def buttonBrowse__clicked(*a)
+    save_state
+    begin
+      IO.popen("#{$env.browser} #{File.join(@project_root, @output_dir, @main)}")  
+    rescue
+      if answer = alert("Enter command to start your browser:", parent: self, input_text: $env.browser)
+        $env.browser = answer
+        VR::save_yaml($env)
+      end  
+    end
+  end
 
   def buttonDeleteProject__clicked(*a)
     if alert("This will delete this project:\n<b>#{@project_root}</b>\nDo you want to continue?",
@@ -146,7 +154,7 @@ class MyYard
         headline: "Delete This Project?")
       $env.projects.delete(@project_root)
       VR::save_yaml($env)
-      FileUtils.rm_rf File.join(@project_root, "my_yard.yaml")
+      FileUtils.rm_rf File.join(@project_root, ".yardoc", "my_yard.yaml")
       $open_project = $env.projects.empty? ? :exit : $env.projects[0]
       @builder[:window1].destroy
     end
@@ -156,7 +164,7 @@ class MyYard
     get_glade_variables
     return if @theme == "default"
     if alert "Delete theme: <b>#{@theme}</b>?", parent:self, button_no: "Cancel"
-      theme = File.join($theme_root, "#{@theme}.yaml")
+      theme = File.join($env.theme_root, "#{@theme}.yaml")
       File.delete(theme)
       @theme = "default"
       fill_themes

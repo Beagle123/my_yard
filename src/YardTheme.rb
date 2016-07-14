@@ -28,9 +28,8 @@ class YardTheme
     out += import_google_font("h2")
     out += import_google_font("h3")
     @css.each do |key, val|
-#puts key.to_s + val.to_s
       if val.strip != "" # and val != $default_theme.css[key]
-        val = "'#{val}'" if key.include?("{font-family}")
+        val = "'#{val}'" if key.include?("{font-family}") # quotes around font names
         out = out + key.gsub("}", ": #{val};" ) + "}\n"
       end
     end
@@ -54,7 +53,7 @@ class YardTheme
         width: 350,
         parent: self)
 # todo lowercase, strip, replace everything except letters, numbers and underscores.
-      path = File.join($theme_root, clone + ".yaml")
+      path = File.join($env.theme_root, clone + ".yaml")
       if File.exists?(path)
         alert "The file, <b>#{clone}</b> already exists.", parent: self
       else
