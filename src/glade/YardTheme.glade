@@ -151,6 +151,54 @@
                     <property name="height">1</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkLabel" id="label25">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">1</property>
+                    <property name="label" translatable="yes">Google Font For Paragraphs:</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">4</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkBox" id="box2">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkEntry" id="css[#main p {font-family}]">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="css[#main p {font-weight}]">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">4</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
               </object>
             </child>
             <child type="tab">
@@ -425,15 +473,16 @@
               <object class="GtkGrid" id="grid3">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="margin_left">10</property>
-                <property name="margin_right">10</property>
-                <property name="margin_top">10</property>
-                <property name="margin_bottom">10</property>
+                <property name="margin_left">25</property>
+                <property name="margin_right">25</property>
+                <property name="margin_top">25</property>
+                <property name="margin_bottom">25</property>
                 <property name="column_spacing">5</property>
                 <child>
                   <object class="GtkLabel" id="label9">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="xalign">1</property>
                     <property name="label" translatable="yes">Table of Contents Background Color:</property>
                   </object>
                   <packing>
@@ -452,6 +501,80 @@
                   <packing>
                     <property name="left_attach">1</property>
                     <property name="top_attach">0</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label28">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">1</property>
+                    <property name="label" translatable="yes">Google Font for Items in Table of Contents:</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkBox" id="box4">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkEntry" id="css[#toc {font-family}]">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="css[#toc {font-weight}]">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label29">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="xalign">1</property>
+                    <property name="label" translatable="yes">Font Size (em):</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">2</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="css[#toc {font-size}]">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">2</property>
                     <property name="width">1</property>
                     <property name="height">1</property>
                   </packing>
@@ -644,6 +767,78 @@
                     <property name="height">1</property>
                   </packing>
                 </child>
+                <child>
+                  <object class="GtkLabel" id="label26">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Google Font for Links in Side Bars:</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">6</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label27">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Font size (em)</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">7</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkBox" id="box3">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <child>
+                      <object class="GtkEntry" id="css[.object_link {font-family}]">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">0</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <object class="GtkEntry" id="css[.object_link {font-weight}]">
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                      </object>
+                      <packing>
+                        <property name="expand">False</property>
+                        <property name="fill">True</property>
+                        <property name="position">1</property>
+                      </packing>
+                    </child>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">6</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="css[.object_link {font-size}]">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">7</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="position">3</property>
@@ -739,6 +934,82 @@
                 <property name="tab_fill">False</property>
               </packing>
             </child>
+            <child>
+              <object class="GtkGrid" id="grid6">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="margin_left">25</property>
+                <property name="margin_right">25</property>
+                <property name="margin_top">25</property>
+                <property name="margin_bottom">25</property>
+                <child>
+                  <object class="GtkLabel" id="label23">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Color of Method Summary Border on Mouse Hover: </property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">0</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="label24">
+                    <property name="visible">True</property>
+                    <property name="can_focus">False</property>
+                    <property name="label" translatable="yes">Color of Method Name Text on Mouse Hover:</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">0</property>
+                    <property name="top_attach">1</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkColorButton" id="css[.summary_signature:hover {border-color}]">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">0</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkColorButton" id="css[#content .summary .summary_signature:hover a {color}]">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                  </object>
+                  <packing>
+                    <property name="left_attach">1</property>
+                    <property name="top_attach">1</property>
+                    <property name="width">1</property>
+                    <property name="height">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">5</property>
+              </packing>
+            </child>
+            <child type="tab">
+              <object class="GtkLabel" id="label22">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">Method Summary</property>
+              </object>
+              <packing>
+                <property name="position">5</property>
+                <property name="tab_fill">False</property>
+              </packing>
+            </child>
           </object>
           <packing>
             <property name="expand">False</property>
@@ -782,7 +1053,7 @@
           <packing>
             <property name="expand">False</property>
             <property name="fill">True</property>
-            <property name="position">2</property>
+            <property name="position">3</property>
           </packing>
         </child>
       </object>

@@ -10,19 +10,12 @@ open_files:
 - "/home/eric/vrp/my_yard/src/YardThemeDefaults.rb"
 - "/home/eric/vrp/my_yard/src/MyYard.rb"
 - "/home/eric/vrp/my_yard/src/YardTheme.rb"
-- "/home/eric/vrp/my_yard/src/GlobalSettings.rb"
-- "/home/eric/vrp/my_yard/my_yard.gemspec"
 - "/home/eric/vrp/my_yard/README.md"
 open_folders:
 - "/home/eric/vrp/my_yard"
-- "/home/eric/vrp/my_yard/home_my_yard"
-- "/home/eric/vrp/my_yard/home_my_yard/templates"
-- "/home/eric/vrp/my_yard/home_my_yard/templates/visualruby"
-- "/home/eric/vrp/my_yard/home_my_yard/templates/visualruby/fulldoc"
-- "/home/eric/vrp/my_yard/home_my_yard/templates/visualruby/fulldoc/html"
-- "/home/eric/vrp/my_yard/home_my_yard/templates/visualruby/fulldoc/html/css"
+- "/home/eric/vrp/my_yard/src"
 current_file: "/home/eric/vrp/my_yard/README.md"
-current_line: 15
+current_line: 25
 rdoc_command_line: rdoc -x README
 builder: !ruby/object:Gtk::Builder {}
 top_level_window: false

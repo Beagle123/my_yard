@@ -23,10 +23,8 @@ class YardTheme
   end
 
   def to_css
-    maps
-    out = import_google_font("h1")
-    out += import_google_font("h2")
-    out += import_google_font("h3")
+    maps()
+    out = import_google_fonts()
     @css.each do |key, val|
       if val.strip != "" # and val != $default_theme.css[key]
         val = "'#{val}'" if key.include?("{font-family}") # quotes around font names
@@ -36,12 +34,14 @@ class YardTheme
     return out
   end
 
-  def import_google_font(tag)
-    out = ""
-    font = @css["#{tag} {font-family}"] 
-    weight = @css["#{tag} {font-weight}"].strip == "" ? "" : ":" + @css["#{tag} {font-weight}"]
-    out += "@import url('https://fonts.googleapis.com/css?family=#{font.gsub(' ', '+')}#{weight}');\n"
-    return out
+  def import_google_fonts()
+    lines = []
+    ["h1", "h2", "h3", "#toc", ".object_link"].each do |tag|
+      font = @css["#{tag} {font-family}"] 
+      weight = @css["#{tag} {font-weight}"].strip == "" ? "" : ":" + @css["#{tag} {font-weight}"]
+      lines << "@import url('https://fonts.googleapis.com/css?family=#{font.gsub(' ', '+')}#{weight}');\n"
+    end
+    return lines.uniq!.join
   end
   
   def buttonClone__clicked(*a)

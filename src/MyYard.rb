@@ -19,7 +19,7 @@ class MyYard
     @include_private ||= false
     @include_protected ||= false
     @include_private_tag ||= false
-    @title ||= "Generated with Yard 0.8.7.6"
+    @title ||= "Generated with Yard v0.9.0"
     @main ||= "README.md"
     @export_db = true if @export_db.nil?
     @export_db_path ||= ".yardoc"
@@ -70,7 +70,7 @@ class MyYard
 #    args << @format
     if File.directory?(@project_root) and @project_root != ENV["HOME"]
       YARD::Registry.clear
-      YARD::Templates::ErbCache.clear!
+#      YARD::Templates::ErbCache.clear!
       old_dir = Dir.pwd
       FileUtils.cd(@project_root)
       YARD::CLI::Yardoc.run(*args)

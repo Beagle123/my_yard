@@ -1,19 +1,24 @@
 #!/usr/bin/ruby
 
 require "vrlib"
-require "yard"
 
 # from require_all gem:
 require_rel 'src/'
 
 def start_my_yard
 
+  begin
+    require "yard"
+  rescue LoadError
+    alert "You need to install the yard gem.  At command prompt:\n\ngem install yard"
+    return
+  end
   # create /home/my_yard if doesn't exist
   unless File.directory?(File.join(Dir.home, "my_yard"))
     VR.copy_recursively File.join(File.dirname(__FILE__), "home_my_yard"), File.join(Dir.home, "my_yard")
   end
 
-  VR::save_yaml(YardTheme.new(), File.join(Dir.home, "my_yard", "themes", "default.yaml"))
+  VR::load_yaml(YardTheme, File.join(Dir.home, "my_yard", "themes", "default.yaml"))
 
   $open_project = (ARGV[0] and File.directory?(ARGV[0])) ? File.expand_path(ARGV[0]) : Dir.pwd
 

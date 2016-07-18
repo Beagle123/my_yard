@@ -8,10 +8,12 @@ module YardThemeDefaults
 
     # covers table text, paragraph text
     @css["body {color}"] ||= "#000000"
+    @css["#main p {font-family}"] ||= "Raleway"
+    @css["#main p {font-weight}"] ||= "300"
 
 
     # #main background (middle doc)
-    @css["#main {background}"] ||= "#ffffff" #ffffff
+#    @css["#main {background}"] ||= "#ffffff" #ffffff
  
     # background for full list.  the even/odd backgrounds cover top, this is bottom.   
     @css["body {background-color}"] ||= "#ffffff" #"#ffffff"
@@ -31,6 +33,12 @@ module YardThemeDefaults
     @css["li.odd {background}"] ||= "#f0f0f0"  #f0f0f0 
     @css["li.even {background}"] ||= "#fafafa" #fafafa
     @css[".item:hover {background}"] ||= "#dddddd" #ddd
+
+    # full list font
+    @css[".object_link {font-family}"] ||= "Raleway"
+    @css[".object_link {font-weight}"] ||= "300"
+    @css[".object_link {font-size}"] ||= "1em"
+
 
     # background color of the selected item in list
     @css["li.clicked > .item {background}"] ||= "#0055aa" #05a;
@@ -79,21 +87,33 @@ module YardThemeDefaults
 
     # table of contents
     @css["#toc {background-color}"] ||= "#fee"
+    @css["#toc {font-size}"] ||= "1em"
+#    @css["#toc > a, #toc > a:visited {color}"] ||= "fafafa"
+    @css["#toc {font-family}"] ||= "Raleway"
+    @css["#toc {font-weight}"] ||= "300"
 
     # @css[".summary .summary_signature {background}"] = "#faf"  # summary of instance methods titles
-    @css["p.signature, h3.signature {background}"] = "#0a6"  #tit
+#    @css["p.signature, h3.signature {background}"] = "#09aa66"  #tit
+    @css["#content .summary .summary_signature:hover a {color}"] ||= "#000000"
+    @css[".summary_signature:hover {border-color}"] ||= "#000000"
     
     # List of links:
     # class = "summary_toggle" is class used for "collapse"
   end
 
   def maps
+    prune
     # summary of instance methods titles
     @css[".summary .summary_signature {background}"] = @css["h3 {background}"]
     # titles over instance method, attr details 
     @css["p.signature, h3.signature {background}"] = @css["h3 {background}"]
     #maps the hilighted color of the method, class or file to the same color as object in parentasis in sidebar
     @css["li.clicked > .item a, li.clicked > .item a:visited {color}"] = @css["li.clicked > .item {color}"] 
+  end
+
+  def prune()
+    default_theme = YardTheme.new()
+    @css.delete_if { |key, val| !default_theme.css.has_key?(key) } 
   end
 
 
