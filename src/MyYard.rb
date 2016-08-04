@@ -23,7 +23,6 @@ class MyYard
     @main ||= "README.md"
     @export_db = true if @export_db.nil?
     @export_db_path ||= ".yardoc"
-#    @format ||= "html"
   end
 
   def before_show()
@@ -66,8 +65,6 @@ class MyYard
     else
       args << "--no-save"        
     end
-#    args << "--format"
-#    args << @format
     if File.directory?(@project_root) and @project_root != ENV["HOME"]
       YARD::Registry.clear
 #      YARD::Templates::ErbCache.clear!
@@ -83,7 +80,8 @@ class MyYard
       css.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
 #      $default_theme.export_to(File.join(@project_root, @output_dir, "css", "common.css"))
     else
-      File.delete(File.join(@project_root, @output_dir, "css", "common.css"))
+      css = File.join(@project_root, @output_dir, "css", "common.css")
+      File.delete(css) if File.exist?(css)
     end
   end
 
@@ -140,7 +138,7 @@ class MyYard
   def buttonBrowse__clicked(*a)
     save_state
     begin
-      IO.popen("#{$env.browser} #{File.join(@project_root, @output_dir, @main)}")  
+      IO.popen("#{$env.browser} #{File.join(@project_root, @output_dir, 'index.html')}")  
     rescue
       if answer = alert("Enter command to start your browser:", parent: self, input_text: $env.browser)
         $env.browser = answer

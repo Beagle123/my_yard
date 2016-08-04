@@ -31,12 +31,12 @@ class YardTheme
         out = out + key.gsub("}", ": #{val};" ) + "}\n"
       end
     end
-    return out
+    return out + "#search { position: static; } .fixed_header { position: static; height: auto;} #full_list {margin-top: 0px;}"
   end
 
   def import_google_fonts()
     lines = []
-    ["h1", "h2", "h3", "#toc", ".object_link"].each do |tag|
+    ["h1", "h2", "h3", "#toc", ".object_link", "#main p"].each do |tag|
       font = @css["#{tag} {font-family}"] 
       weight = @css["#{tag} {font-weight}"].strip == "" ? "" : ":" + @css["#{tag} {font-weight}"]
       lines << "@import url('https://fonts.googleapis.com/css?family=#{font.gsub(' ', '+')}#{weight}');\n"

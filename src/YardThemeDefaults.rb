@@ -29,7 +29,7 @@ module YardThemeDefaults
 #    @css[".summary_desc .object_link a, .docstring .object_link a {color}"] ||= "#0055aa" #0055aa
 
     # full list backgrounds
-    @css[".object_link a {color}"] ||= "#0055aa"
+    @css[".object_link a, #full_list_nav a, #full_list_nav a:hover {color}"] ||= "#0055aa"
     @css["li.odd {background}"] ||= "#f0f0f0"  #f0f0f0 
     @css["li.even {background}"] ||= "#fafafa" #fafafa
     @css[".item:hover {background}"] ||= "#dddddd" #ddd

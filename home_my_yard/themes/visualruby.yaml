@@ -31,6 +31,17 @@ css:
   "#toc {background-color}": "#f3f3eb"
   p.signature, h3.signature {background}: "#0a6"
   "#main p {width}": 65%
+  "#main p {font-family}": Raleway
+  "#main p {font-weight}": '300'
+  ".object_link a, #full_list_nav a, #full_list_nav a:hover {color}": "#662211"
+  ".object_link {font-family}": Raleway
+  ".object_link {font-weight}": '300'
+  ".object_link {font-size}": 1em
+  "#toc {font-size}": 1em
+  "#toc {font-family}": Raleway
+  "#toc {font-weight}": '300'
+  "#content .summary .summary_signature:hover a {color}": "#000000"
+  ".summary_signature:hover {border-color}": "#000000"
 vr_yaml_file: "/home/eric/my_yard/themes/visualruby.yaml"
 builder: !ruby/object:Gtk::Builder {}
 top_level_window: false

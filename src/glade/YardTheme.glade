@@ -676,7 +676,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkColorButton" id="css[.object_link a {color}]">
+                  <object class="GtkColorButton" id="css[.object_link a, #full_list_nav a, #full_list_nav a:hover {color}]">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
