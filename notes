@@ -1,9 +1,0 @@
-To make yard compatible:
-
-#search { position: static;}
-.fixed_header { position: static; padding-bottom: 0px;}
-#full_list {margin-top: 15px; }
-
-remove height: 70px from .fixed_header class in full_list.css
-
- 
