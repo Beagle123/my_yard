@@ -1,5 +1,3 @@
-# @title Installing my_yard
-
 # My Yard Document Generator
 
 To install:

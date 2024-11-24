@@ -45,15 +45,16 @@ class YardTheme
   end
   
   def buttonClone__clicked(*a)
-    if clone = alert("This will make a clone of this theme.  " +
-        "Enter the name of the new theme without any extension (only letters and underscores).",
-        headline: "Clone Theme",
-        button_no: "Cancel",
-        input_text: "",
-        width: 350,
-        parent: self)
-# todo lowercase, strip, replace everything except letters, numbers and underscores.
-      path = File.join($env.theme_root, clone + ".yaml")
+    clone = alert("This will make a clone of this theme.  " +
+      "Enter the name of the new theme without any extension (only letters and underscores).",
+      headline: "Clone Theme",
+      data: "",
+      width: 350,
+      parent: self)
+    alert clone
+    if clone.is_a? String and clone != "default" and clone != ""
+      # todo lowercase, strip, replace everything except letters, numbers and underscores.
+      path = File.join(Dir.home, "my_yard", "themes", clone + ".yaml")
       if File.exists?(path)
         alert "The file, <b>#{clone}</b> already exists.", parent: self
       else
@@ -61,6 +62,8 @@ class YardTheme
         VR::save_yaml(self, path)
         @builder[:headline].label = "Theme:  #{clone}"
       end
+    else
+      
     end 
   end
 

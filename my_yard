@@ -1,36 +1,61 @@
 #!/usr/bin/ruby
-
+require "yard"
 require "vrlib"
+require_relative "lib/my_yard"
 
-# from require_all gem:
-require_rel 'src/'
 
-def start_my_yard
+proj = VR::load_yaml(MyYard, File.join(Dir.pwd, ".yardoc", "my_yard.yaml"))
+proj.show_glade()
 
-  begin
-    require "yard"
-  rescue LoadError
-    alert "You need to install the yard gem.  At command prompt:\n\ngem install yard"
-    return
-  end
-  # create /home/my_yard if doesn't exist
-  unless File.directory?(File.join(Dir.home, "my_yard"))
-    VR.copy_recursively File.join(File.dirname(__FILE__), "home_my_yard"), File.join(Dir.home, "my_yard")
-  end
+# def start_my_yard
+# 
+#   # create /home/my_yard if doesn't exist
+#   unless File.directory?(File.join(Dir.home, "my_yard"))
+#     VR.copy_recursively File.join(File.dirname(__FILE__), "home_my_yard"), File.join(Dir.home, "my_yard")
+#   end
+# 
+#   VR::load_yaml(YardTheme, File.join(Dir.home, "my_yard", "themes", "default.yaml"))
+# 
+#   $open_project = (ARGV[0] and File.directory?(ARGV[0])) ? File.expand_path(ARGV[0]) : Dir.pwd
+# 
+#   $env = VR::load_yaml(GlobalSettings, File.join(Dir.home, "my_yard", "global_settings.yaml"))
+# 
+#   loop do 
+#     $env.add_project($open_project) 
+#     proj = VR::load_yaml(MyYard, File.join($open_project, ".yardoc", "my_yard.yaml"))
+#     proj.show_glade()
+#     break if $open_project == :exit
+#   end
+# 
+# end
+# 
+# start_my_yard
+# 
 
-  VR::load_yaml(YardTheme, File.join(Dir.home, "my_yard", "themes", "default.yaml"))
 
-  $open_project = (ARGV[0] and File.directory?(ARGV[0])) ? File.expand_path(ARGV[0]) : Dir.pwd
-
-  $env = VR::load_yaml(GlobalSettings, File.join(Dir.home, "my_yard", "global_settings.yaml"))
-
-  loop do 
-    $env.add_project($open_project) 
-    proj = VR::load_yaml(MyYard, File.join($open_project, ".yardoc", "my_yard.yaml"))
-    proj.show_glade()
-    break if $open_project == :exit
-  end
-
-end
-
-start_my_yard
+# $open_project = nil
+# 
+# def start_my_yard
+# 
+#   # create /home/my_yard if doesn't exist
+#   unless File.directory?(File.join(Dir.home, "my_yard"))
+#     VR.copy_recursively File.join(File.dirname(__FILE__), "home_my_yard"), File.join(Dir.home, "my_yard")
+#   end
+# 
+#   VR::load_yaml(YardTheme, File.join(Dir.home, "my_yard", "themes", "default.yaml"))
+# 
+#   $open_project = (ARGV[0] and File.directory?(ARGV[0])) ? File.expand_path(ARGV[0]) : Dir.pwd
+# 
+#   $env = VR::load_yaml(GlobalSettings, File.join(Dir.home, "my_yard", "global_settings.yaml"))
+# 
+#   loop do 
+#     $env.add_project($open_project) 
+#     proj = VR::load_yaml(MyYard, File.join($open_project, ".yardoc", "my_yard.yaml"))
+#     proj.show_glade()
+#     break if $open_project == :exit
+#   end
+# 
+# end
+# 
+# start_my_yard
+# 
