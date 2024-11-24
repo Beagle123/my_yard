@@ -16,10 +16,8 @@ open_files:
 - "/home/eric/vrp/my_yard/lib/YardThemeDefaults.rb"
 open_folders:
 - "/home/eric/vrp/my_yard"
-- "/home/eric/vrp/my_yard/lib"
-- "/home/eric/vrp/my_yard/lib/glade"
 current_file: "/home/eric/vrp/my_yard/lib/MyYard.rb"
-current_line: 106
+current_line: 99
 rdoc_command_line: rdoc -x README
 builder: !ruby/object:Gtk::Builder {}
 top_level_window: false
