@@ -1,5 +1,5 @@
 doc/**/*.*
-./.vr_settings.yaml
+.vr_settings.yaml
 */**/*.*~
 .yardoc/**/*.*
-./*.gem
+*.gem
