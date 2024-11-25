@@ -12,7 +12,7 @@ my_yard
 ```
 You'll get this GUI:
 
-![](https://beagle123.github.io/visualruby/lib/my_yard.png)
+![](https://beagle123.github.io/visualruby/docs/img/my_yard.png)
 
 You can choose your own fonts and colors to create great looking documents.
  Here's an example of a website that was generated using **my_yard**:
