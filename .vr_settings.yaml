@@ -18,7 +18,7 @@ open_folders:
 - "/home/eric/vrp/my_yard"
 - "/home/eric/vrp/my_yard/lib"
 current_file: "/home/eric/vrp/my_yard/README.md"
-current_line: 15
+current_line: 17
 rdoc_command_line: rdoc -x README
 builder: !ruby/object:Gtk::Builder {}
 top_level_window: false
