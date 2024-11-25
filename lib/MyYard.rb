@@ -28,7 +28,7 @@ class MyYard
     @include_private_tag ||= false
     @title ||= "Generated with my_yard "
     @main ||= "README.md"
-    @export_db = true if @export_db.nil?
+    @export_db = false if @export_db.nil?
     @export_db_path ||= ".yardoc"
   end
 
