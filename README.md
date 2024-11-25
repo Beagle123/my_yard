@@ -12,12 +12,12 @@ my_yard
 ```
 You'll get this GUI:
 
-![](http://visualruby.net/img/my_yard.jpg)
+![](https://beagle123.github.io/visualruby/lib/my_yard.png)
 
 You can choose your own fonts and colors to create great looking documents.
  Here's an example of a website that was generated using **my_yard**:
 
-[Visual Ruby Home Page](beagle123.github.io/visualruby)
+[Visual Ruby Home Page](https://beagle123.github.io/visualruby/)
 
 This website was created by simply selecting
 the **"visualruby"** theme.  But you are free to create your own themes and templates.
