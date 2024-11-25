@@ -9,13 +9,14 @@ class MyYard
 
   def defaults
     unless File.directory?(File.join(Dir.home, "my_yard"))
-      VR.copy_recursively File.join(File.dirname(__FILE__), "home_my_yard"), File.join(Dir.home, "my_yard")
+      VR.copy_recursively File.join(File.dirname(__FILE__), "..", "home_my_yard"), File.join(Dir.home, "my_yard")
+      VR::load_yaml(YardTheme, File.join(Dir.home, "my_yard", "themes", "default.yaml")) # create default theme
     end
-#   @env = VR::load_yaml(GlobalSettings, File.join(Dir.home, "my_yard", "global_settings.yaml"))
+
     @project_root = Dir.pwd
     @theme_root = File.join(Dir.home, "my_yard", "themes")
     @template_root = File.join(Dir.home, "my_yard", "templates")
-    @output_dir ||= "doc"
+    @output_dir ||= "docs"
     @theme = "default" if @theme.nil? or !File.exist?(File.join(@theme_root, @theme + ".yaml")) 
     @template ||= "default" 
     @files ||= "*/**/*.rb */**/*.c"
@@ -33,7 +34,6 @@ class MyYard
 
   def before_show()
     fill_combo_boxes
-puts @template
     set_glade_variables
   end  
 
@@ -90,15 +90,9 @@ puts @template
       css = File.join(@project_root, @output_dir, "css", "common.css")
       File.delete(css) if File.exist?(css)
     end
+    alert("Documents created in the '#{@output_dir}' folder.", headline: "Documents Generated", width: 500)
   end
 
-#   def project_root__changed(*a)
-#     return unless @builder[:project_root].model.count == @env.projects.size 
-#     return if @builder[:project_root].active_text == $open_project 
-#     save_state
-#     $open_project = @builder[:project_root].active_text
-#     @builder[:window1].destroy  
-#   end
 
   def theme__changed(*a)
     get_glade_variables
