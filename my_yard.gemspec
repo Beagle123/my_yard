@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "my_yard"  # i.e. visualruby.  This name will show up in the gem list.
-  s.version = "0.0.7"  # i.e. (major,non-backwards compatable).(backwards compatable).(bugfix)
+  s.version = "0.0.8"  # i.e. (major,non-backwards compatable).(backwards compatable).(bugfix)
   s.add_dependency "visualruby", ">= 3.0.18"
   s.add_dependency "yard", "= 0.9.37"
   s.authors = ["Eric Cunningham"] 
